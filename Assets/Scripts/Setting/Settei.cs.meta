@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 82888734f45116b4498a34111b47b03f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Sousa: {fileID: 6860905109112187748, guid: cca148a495d7c114db81ad328186f54d, type: 3}
+  - System: {fileID: 1735240290080590653, guid: ce8a69ab451ae6a4ca28128a7116e2c4,
+      type: 3}
+  - SousaButton: {instanceID: 0}
+  - SystemButton: {instanceID: 0}
+  - zensin: {fileID: 79356840244147651, guid: 628b32721530fd342a53641f442d2bdf, type: 3}
+  - koutai: {instanceID: 0}
+  - migi: {instanceID: 0}
+  - hidari: {instanceID: 0}
+  - jamp: {instanceID: 0}
+  - setti: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
