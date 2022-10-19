@@ -31,7 +31,7 @@ public class Matching : MonoBehaviourPunCallbacks
             var position = new Vector3(Random.Range(-6f,6f), 0.2f, Random.Range(-5f,5f));
             GameObject player = PhotonNetwork.Instantiate("Player1", position, Quaternion.identity);
             camera.transform.parent = player.transform;
-            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z - 0.7f * 0.16f);
+            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 3f * 0.16f, player.transform.position.z - 1.0f * 0.16f);
             PhotonNetwork.InstantiateRoomObject("GameMaster", Vector3.zero, Quaternion.identity);
         }
         else if (num == 2)

@@ -7,7 +7,9 @@ public class Exprosion_fireO : MonoBehaviour
 {
     private GameObject parent;    //親オブジェクト
     private GameObject grandma;   //親オブジェクトの親オブジェクト
-    private Exprosion_O Exprosion;  //爆発をつかさどるクラス(経過時間を参照する)
+    private Exprosion_O Exprosion;  //爆発をつかさどるクラス(経過時間とプレイヤー情報を参照する)
+
+    private float power;          //爆弾の火力
 
     //炎の音を再生するため
     public AudioClip Fire;
@@ -22,6 +24,7 @@ public class Exprosion_fireO : MonoBehaviour
         parent = transform.parent.gameObject;
         grandma = parent.transform.parent.gameObject;
         Exprosion = grandma.GetComponent<Exprosion_O>();
+        power = Exprosion.Player.GetComponent<Controller_O>().fire;
         fire = true;
         exprosion = true;
         audioSource = GetComponent<AudioSource>();
@@ -38,7 +41,7 @@ public class Exprosion_fireO : MonoBehaviour
 
         if (Exprosion.DeleteTime < 3.5 && Exprosion.DeleteTime > 3 && exprosion)   //0.5秒で炎が伸びる
         {
-            this.transform.localScale = new Vector3(1.8f, 1.8f * 4f * (Exprosion.DeleteTime - 3f), 1.8f);
+            this.transform.localScale = new Vector3(1.8f, 1.8f * 4f * (Exprosion.DeleteTime - 3f)*power, 1.8f);
             this.transform.localPosition = new Vector3(0f, 2f * (Exprosion.DeleteTime - 3f), 0f);
         }
     }

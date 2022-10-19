@@ -11,6 +11,8 @@ public class Exprosion_O : MonoBehaviourPunCallbacks
     public float DeleteTime;  //爆発の時間管理に使う
     private bool explosion;   //爆発エフェクトを一度だけ出すために使う
 
+    public GameObject Player; //爆弾を生成したプレイヤーを保存
+
     //爆発エフェクト用のオブジェクト
     public GameObject ExplosionObj;
     public GameObject ExplosionObjPrefab;
@@ -43,7 +45,9 @@ public class Exprosion_O : MonoBehaviourPunCallbacks
         }
         else if (DeleteTime > 6)
         {
-            Destroy(this.gameObject);   //爆弾を全て消す
+            Controller_O con = Player.gameObject.GetComponent<Controller_O>();
+            con.bomb_num += 1;
+            //Destroy(this.gameObject);   //爆弾を全て消す
         }
     }
 }

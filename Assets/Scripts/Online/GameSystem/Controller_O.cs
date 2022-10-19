@@ -15,6 +15,9 @@ public class Controller_O : MonoBehaviourPunCallbacks
 
     public float rotateSpeed;    //回転速度
     public float transrateSpeed; //移動速度
+    public float fire;           //爆弾の火力
+    public int bomb_num;         //設置できる爆弾の個数
+    public bool punch;           //パンチが可能かどうか
 
     private Animator animator;
     private int trans;          //アニメーション制御の変数
@@ -34,6 +37,9 @@ public class Controller_O : MonoBehaviourPunCallbacks
     {
         rotateSpeed = 2.0f;
         transrateSpeed = 2.0f;
+        fire = 1.0f;
+        bomb_num = 1;
+        punch = false;
         Rotate = true;
         bomb = false;
         rb = GetComponent<Rigidbody>();
@@ -73,7 +79,7 @@ public class Controller_O : MonoBehaviourPunCallbacks
             animator = GetComponent<Animator>();
             trans = animator.GetInteger("trans");
 
-            trans = 0;
+            //trans = 0;
             if (Input.GetKey(key[0]))  //前進
             {
                 trans = 1;
@@ -114,6 +120,12 @@ public class Controller_O : MonoBehaviourPunCallbacks
             {
                 bomb = false;
             }
+
+            /*
+            if(punch && Input.GetKeyDown(KeyCode.E))  //パンチ
+            {
+                trans = 5;
+            }*/
 
             if (Rotate)  //回転
             {
