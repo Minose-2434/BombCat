@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2794068312384478237}
   - component: {fileID: 2794068312384478226}
   - component: {fileID: 2794068312384478227}
+  - component: {fileID: 1207727238006813547}
   m_Layer: 0
   m_Name: FireUp
   m_TagString: Untagged
@@ -158,6 +159,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b987538d78470c4081b03137d547339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1207727238006813547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794068312384478239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2794068313428304216
 GameObject:
   m_ObjectHideFlags: 0

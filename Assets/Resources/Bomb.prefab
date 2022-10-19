@@ -73960,8 +73960,9 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents: []
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 4676675118431907130}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

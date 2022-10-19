@@ -48,7 +48,7 @@ public class BombCreate_O : MonoBehaviourPunCallbacks
                 GameObject bomb = PhotonNetwork.Instantiate("Bomb", new Vector3(this.transform.position.x, 0.5f, this.transform.position.z), Quaternion.identity);  //床の真上に爆弾を生成
                 bomb.transform.parent = BombsObj.transform;
                 Exprosion = bomb.gameObject.GetComponent<Exprosion_O>();
-                Exprosion.Player = Player;      //爆発用のクラスにプレイヤーの情報を送る
+                Exprosion.Player = Player;      //爆発用のクラスにプレイヤーの情報を送る               
                 create = false;                 //爆弾設置を不可に
                 touch = false;                  //接触判定をfalseに
                 Con.bomb = false;　　　　       //爆弾設置を不可に

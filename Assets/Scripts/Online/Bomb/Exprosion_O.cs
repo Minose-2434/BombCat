@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 
 //爆発全般を制御するクラス
-public class Exprosion_O : MonoBehaviourPunCallbacks
+public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
 {
     public GameObject bomb;   //爆弾本体のオブジェクト
 
@@ -47,7 +47,21 @@ public class Exprosion_O : MonoBehaviourPunCallbacks
         {
             Controller_O con = Player.gameObject.GetComponent<Controller_O>();
             con.bomb_num += 1;
-            //Destroy(this.gameObject);   //爆弾を全て消す
+            Destroy(this.gameObject);   //爆弾を全て消す
+        }
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // Timerの値をストリームに書き込んで送信する
+            stream.SendNext(Player);
+        }
+        else
+        {
+            // 受信したストリームを読み込んでTimerの値を更新する
+            Player = (GameObject)stream.ReceiveNext();
         }
     }
 }

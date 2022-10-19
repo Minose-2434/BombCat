@@ -41,7 +41,7 @@ public class Exprosion_fireO : MonoBehaviour
 
         if (Exprosion.DeleteTime < 3.5 && Exprosion.DeleteTime > 3 && exprosion)   //0.5秒で炎が伸びる
         {
-            this.transform.localScale = new Vector3(1.8f, 1.8f * 4f * (Exprosion.DeleteTime - 3f)*power, 1.8f);
+            this.transform.localScale = new Vector3(1.8f, 1.8f * 4f * (Exprosion.DeleteTime - 3f) * power, 1.8f);
             this.transform.localPosition = new Vector3(0f, 2f * (Exprosion.DeleteTime - 3f), 0f);
         }
     }
