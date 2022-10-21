@@ -27,52 +27,20 @@ public class RengaCreate_O : MonoBehaviourPunCallbacks
         {
             if (Random.value < 0.9)
             {
-                GameObject renga_1 = PhotonNetwork.Instantiate("renga", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                renga_1.transform.parent = RengasObj.transform;
+                rengaCreate(6f, 3f - z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), 6f, 3f - z);
                 }
             }
             if(Random.value < 0.9)
             {
-                GameObject renga_2 = PhotonNetwork.Instantiate("renga", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                renga_2.transform.parent = RengasObj.transform;
+                rengaCreate(-6f, 3f - z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), -6f, 3f - z);
                 }
             }
         }
@@ -81,52 +49,20 @@ public class RengaCreate_O : MonoBehaviourPunCallbacks
         {
             if (Random.value < 0.9)
             {
-                GameObject renga_1 = PhotonNetwork.Instantiate("renga", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                renga_1.transform.parent = RengasObj.transform;
+                rengaCreate(5f, 3f - 2 * z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), 5f, 3f - 2 * z);
                 }
             }
             if(Random.value < 0.9)
             {
-                GameObject renga_2 = PhotonNetwork.Instantiate("renga", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                renga_2.transform.parent = RengasObj.transform;
+                rengaCreate(-5f, 3f - 2 * z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), -5f, 3f - 2 * z);
                 }
             }
         }
@@ -137,27 +73,11 @@ public class RengaCreate_O : MonoBehaviourPunCallbacks
             {
                 if (Random.value < 0.9)
                 {
-                    GameObject renga = PhotonNetwork.Instantiate("renga", new Vector3(4f - 2 * x, 0.5f, 5f - z), Quaternion.identity);
-                    renga.transform.parent = RengasObj.transform;
+                    rengaCreate(4f - 2 * x, 5f - z);
 
                     if (Random.value < 0.5)
                     {
-                        int number = Random.Range(0, 3);
-                        if (number == 0)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(4f - 2 * x, 0.5f, 5f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 1)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(4f - 2 * x, 0.5f, 5f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 2)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(4f - 2 * x, 0.5f, 5f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
+                        itemCreate(Random.Range(0, 3), 4f - 2 * x, 5f - z);
                     }
                 }
             }
@@ -169,27 +89,11 @@ public class RengaCreate_O : MonoBehaviourPunCallbacks
             {
                 if (Random.value < 0.9)
                 {
-                    GameObject renga = PhotonNetwork.Instantiate("renga", new Vector3(3f - 2 * x, 0.5f, 5f - 2 * z), Quaternion.identity);
-                    renga.transform.parent = RengasObj.transform;
+                    rengaCreate(3f - 2 * x, 5f - 2 * z);
 
                     if (Random.value < 0.5)
                     {
-                        int number = Random.Range(0, 3);
-                        if (number == 0)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(3f - 2 * x, 0.5f, 5f - 2 * z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 1)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(3f - 2 * x, 0.5f, 5f - 2 * z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 2)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(3f - 2 * x, 0.5f, 5f - 2 * z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
+                        itemCreate(Random.Range(0, 3), 3f - 2 * x, 5f - 2 * z);
                     }
                 }
             }
@@ -204,52 +108,20 @@ public class RengaCreate_O : MonoBehaviourPunCallbacks
         {
             if (Random.value < 0.9)
             {
-                GameObject renga_1 = PhotonNetwork.Instantiate("renga", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                renga_1.transform.parent = RengasObj.transform;
+                rengaCreate(6f, 3f - z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), 6f, 3f - z);
                 }
             }
             if (Random.value < 0.9)
             {
-                GameObject renga_2 = PhotonNetwork.Instantiate("renga", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                renga_2.transform.parent = RengasObj.transform;
+                rengaCreate(-6f, 3f - z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(-6f, 0.5f, 3f - z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), -6f, 3f - z);
                 }
             }
         }
@@ -258,52 +130,20 @@ public class RengaCreate_O : MonoBehaviourPunCallbacks
         {
             if (Random.value < 0.9)
             {
-                GameObject renga_1 = PhotonNetwork.Instantiate("renga", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                renga_1.transform.parent = RengasObj.transform;
+                rengaCreate(5f, 3f - 2 * z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), 5f, 3f - 2 * z);
                 }
             }
             if (Random.value < 0.9)
             {
-                GameObject renga_2 = PhotonNetwork.Instantiate("renga", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                renga_2.transform.parent = RengasObj.transform;
+                rengaCreate(-5f, 3f - 2 * z);
 
                 if (Random.value < 0.5)
                 {
-                    int number = Random.Range(0, 3);
-                    if (number == 0)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 1)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
-                    else if (number == 2)
-                    {
-                        GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(-5f, 0.5f, 3f - 2 * z), Quaternion.identity);
-                        item.transform.parent = Item.transform;
-                    }
+                    itemCreate(Random.Range(0, 3), -5f, 3f - 2 * z);
                 }
             }
         }
@@ -314,52 +154,20 @@ public class RengaCreate_O : MonoBehaviourPunCallbacks
             {
                 if (Random.value < 0.9)
                 {
-                    GameObject renga = PhotonNetwork.Instantiate("renga", new Vector3(2f + 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                    renga.transform.parent = RengasObj.transform;
+                    rengaCreate(2f + 2 * x, 3f - z);
 
                     if (Random.value < 0.5)
                     {
-                        int number = Random.Range(0, 3);
-                        if (number == 0)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(2f + 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 1)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(2f + 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 2)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(2f + 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
+                        itemCreate(Random.Range(0, 3), 2f + 2 * x, 3f - z);
                     }
                 }
                 if (Random.value < 0.9)
                 {
-                    GameObject renga = PhotonNetwork.Instantiate("renga", new Vector3(-2f - 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                    renga.transform.parent = RengasObj.transform;
+                    rengaCreate(-2f - 2 * x, 3f - z);
 
                     if (Random.value < 0.5)
                     {
-                        int number = Random.Range(0, 3);
-                        if (number == 0)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("FireUp", new Vector3(-2f + 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 1)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("BombUp", new Vector3(-2f + 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
-                        else if (number == 2)
-                        {
-                            GameObject item = PhotonNetwork.Instantiate("RunUp", new Vector3(-2f + 2 * x, 0.5f, 3f - z), Quaternion.identity);
-                            item.transform.parent = Item.transform;
-                        }
+                        itemCreate(Random.Range(0, 3), -2f - 2 * x, 3f - z);
                     }
                 }
             }

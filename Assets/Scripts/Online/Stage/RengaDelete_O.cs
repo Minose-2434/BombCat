@@ -23,7 +23,10 @@ public class RengaDelete_O : MonoBehaviourPunCallbacks
         //爆風に当たった時床のスコアをあげて自身は消える
         if (other.gameObject.tag == "Fire")
         {
-            Destroy(this.gameObject);
+            if (photonView.IsMine)
+            {
+                PhotonNetwork.Destroy(this.gameObject);
+            }
         }
     }
 }
