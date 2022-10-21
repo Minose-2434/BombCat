@@ -10,6 +10,7 @@ public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
 
     public float DeleteTime;  //爆発の時間管理に使う
     private bool explosion;   //爆発エフェクトを一度だけ出すために使う
+    public float power;       //爆弾の火力を保存
 
     public GameObject Player; //爆弾を生成したプレイヤーを保存
 
@@ -26,7 +27,10 @@ public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
     {
         explosion = true;
         audioSource = GetComponent<AudioSource>();
-        //ExplosionObj = this.transform.FindChild("Explosion").gameObject;
+        if (photonView.IsMine)
+        {
+            power = Player.GetComponent<Controller_O>().fire;
+        }
     }
 
     // Update is called once per frame
@@ -45,8 +49,11 @@ public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
         }
         else if (DeleteTime > 6)
         {
-            Controller_O con = Player.gameObject.GetComponent<Controller_O>();
-            con.bomb_num += 1;
+            if (photonView.IsMine)
+            {
+                Controller_O con = Player.gameObject.GetComponent<Controller_O>();
+                con.bomb_num += 1;
+            }
             Destroy(this.gameObject);   //爆弾を全て消す
         }
     }
@@ -56,12 +63,12 @@ public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             // Timerの値をストリームに書き込んで送信する
-            stream.SendNext(Player);
+            stream.SendNext(power);
         }
         else
         {
             // 受信したストリームを読み込んでTimerの値を更新する
-            Player = (GameObject)stream.ReceiveNext();
+            power = (float)stream.ReceiveNext();
         }
     }
 }

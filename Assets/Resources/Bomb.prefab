@@ -73980,6 +73980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomb: {fileID: 4857514896301995941}
   DeleteTime: 0
+  power: 0
   Player: {fileID: 0}
   ExplosionObj: {fileID: 4857514895666620213}
   ExplosionObjPrefab: {fileID: 100010, guid: 645413a00f7bd0242bbd6d0e5eb6f439, type: 3}

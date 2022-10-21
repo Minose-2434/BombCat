@@ -24,7 +24,6 @@ public class Exprosion_fireO : MonoBehaviour
         parent = transform.parent.gameObject;
         grandma = parent.transform.parent.gameObject;
         Exprosion = grandma.GetComponent<Exprosion_O>();
-        power = Exprosion.Player.GetComponent<Controller_O>().fire;
         fire = true;
         exprosion = true;
         audioSource = GetComponent<AudioSource>();
@@ -33,6 +32,7 @@ public class Exprosion_fireO : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        power = Exprosion.power;
         if (Exprosion.DeleteTime > 3 && fire)  //3秒後に炎の音が流れる
         {
             audioSource.PlayOneShot(Fire);
