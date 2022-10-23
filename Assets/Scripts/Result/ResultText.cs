@@ -11,10 +11,7 @@ public class ResultText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Screen.lockCursor = false;  // エスケープボタンが押されたらカーソルを表示
-        }
+        Screen.lockCursor = false;                  //カーソルを表示
 
         //勝者であればYou Win!そうでなければYou Lose
         if (GameMaster.winner == "1p")
@@ -25,11 +22,5 @@ public class ResultText : MonoBehaviour
         {
             Text.text = "You Lose";
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
