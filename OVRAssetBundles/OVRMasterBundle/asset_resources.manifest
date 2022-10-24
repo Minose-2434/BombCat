@@ -1,0 +1,216 @@
+ManifestFileVersion: 0
+CRC: 1262731027
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8ae7fd445dbd789472188ef2584c11aa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: da7f7bfa766ae410bd4dfd274caf81a4
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dba1a179e553446f0a08606778f559f1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0ac1691131a8c844dafe8b6ace6a172a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c46e178b63ced4441986e5cd4c834532, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ba5928de229db3349ba9eff77b30fe60, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b4acef5257f5ccd4cb525f308fd9b6ec, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3a6c9149f40b2ef4c9394d4aa581ed10, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3536a415d5526b741a7516cbc98baa7f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a5bd75e5085345740845267b8c738d09, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 16f457c0b15b78244894cefdb27870b3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 039587c051912eb4ead9e58344c5f3ce, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6321a7d9112988841b7223ac6a925bfc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 507e5741cec8a42dc964c8e0a4b55bd6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 98fac77b304554f238a61572f5720187, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ad074644ff568a14187a3690cfbd7534, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c565458f43b8ad4469a2ca341c210318, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4fde14656bc40455ba65844c093b79a3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 541a76f9c03874323b5154b14ac00427, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b93b962ad2d5e7e4ebf67cd2e77598a2, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3863570e7e6387a40ae4f323d83291e5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d1b2c3b100a8dd14e9a8a62d7f11afe1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6e9405052bba8fa4f9ac7f08f19b3274, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c852cc8bbc743374083cab6f7df68bb7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 00c21829c8be74b479488a2dc4695955, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5b987538d78470c4081b03137d547339, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 04244f1fe9fcdbc4cb363bbf8f6da4a9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fd08475b23aa548b7b9d28397d430b32, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 143
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+- Class: 225
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: PhotonRealtime
+  ClassName: Photon.Realtime.AppSettings
+- AssemblyName: PhotonUnityNetworking
+  ClassName: Photon.Pun.PhotonAnimatorView/SynchronizedLayer
+- AssemblyName: PhotonUnityNetworking
+  ClassName: Photon.Pun.PhotonAnimatorView/SynchronizedParameter
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.AnimationTriggers
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.ColorBlock
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.FontData
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Navigation
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.Slider/SliderEvent
+- AssemblyName: UnityEngine.UI
+  ClassName: UnityEngine.UI.SpriteState
+Assets:
+- Assets/Resources/OVRPlatformToolSettings.asset
+- Assets/Resources/BombUp.prefab
+- Assets/Resources/Player3.prefab
+- Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Resources/BigAsteroid.prefab
+- Assets/Resources/Yuka_1.prefab
+- Assets/Resources/Player1.prefab
+- Assets/Resources/Player4.prefab
+- Assets/Oculus/Voice/Resources/voicesdk_texts_en-us.json
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/DepthOverwrite.shader
+- Assets/Oculus/Voice/Lib/Wit.ai/Resources/wit-ai-title.png
+- Assets/Resources/renga.prefab
+- Assets/Resources/Bomb.prefab
+- Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Resources/Player Controller.prefab
+- Assets/Oculus/VR/Resources/OVRMRCameraFrameLit.shader
+- Assets/Resources/Iron.prefab
+- Assets/Oculus/VR/Resources/Cubemap Blit.shader
+- Assets/Oculus/VR/Resources/Underlay Impostor.shader
+- Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Resources/Spaceship.prefab
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/Imposter_AlphaBlended.shader
+- Assets/Resources/Yuka_2.prefab
+- Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
+- Assets/Oculus/VR/Resources/Underlay Transparent Occluder.shader
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/Imposter_Opaque.shader
+- Assets/Resources/GameMaster.prefab
+- Assets/Resources/RunUp.prefab
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/Imposter_AlphaCutout.shader
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/Imposter_AlphaToMask.shader
+- Assets/Resources/OVRBuildConfig.asset
+- Assets/Oculus/VR/Resources/OVRMRUnlitTransparent.shader
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/UIOverlay.shader
+- Assets/Oculus/Voice/Lib/Wit.ai/Resources/witai_texts_en-us.json
+- Assets/Photon/PhotonUnityNetworking/Demos/PunBasics-Tutorial/Resources/My Robot
+  Kyle -done-.prefab
+- Assets/Oculus/VR/Resources/OVRMRUnlit.shader
+- Assets/Oculus/Voice/Resources/voicesdk_heroart.png
+- Assets/Resources/Player2.prefab
+- Assets/Oculus/VR/Resources/OVRMRCameraFrame.shader
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/UnderlayTransparentOccluderImposter.shader
+- Assets/Resources/ExplosionMobile.prefab
+- Assets/Resources/OculusRuntimeSettings.asset
+- Assets/Photon/PhotonUnityNetworking/Demos/DemoAsteroids/Resources/SmallAsteroid.prefab
+- Assets/Resources/Punch.prefab
+- Assets/Resources/FireUp.prefab
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/Imposter_Underlay.shader
+- Assets/Resources/ONSPSettings.asset
+- Assets/Oculus/Interaction/Runtime/Resources/Shaders/Imposter_Underlay_AA.shader
+- Assets/Oculus/Voice/Lib/Wit.ai/Resources/continue-with-fb.png
+- Assets/Oculus/Voice/Lib/Wit.ai/Resources/witai.png
+- Assets/Oculus/VR/Resources/Texture2D Blit.shader
+- Assets/Oculus/VR/Resources/Unlit Transparent Color.shader
+Dependencies: []
