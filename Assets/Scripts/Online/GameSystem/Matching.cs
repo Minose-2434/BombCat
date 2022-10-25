@@ -26,12 +26,12 @@ public class Matching : MonoBehaviourPunCallbacks
         int num = PhotonNetwork.CurrentRoom.PlayerCount;
 
         //プレーヤーの順番に応じて対応するアバターを生成する
-        if(num == 1)
+        if (num == 1)
         {
-            var position = new Vector3(Random.Range(-6f,6f), 0.2f, Random.Range(-5f,0f));
+            var position = new Vector3(Random.Range(-6f, 6f), 0.2f, Random.Range(-5f, 0f));
             GameObject player = PhotonNetwork.Instantiate("Player1", position, Quaternion.identity);
             camera.transform.parent = player.transform;
-            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z - 0.7f * 0.16f);
+            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z + 0.15f);
             PhotonNetwork.InstantiateRoomObject("GameMaster", Vector3.zero, Quaternion.identity);
         }
         else if (num == 2)
@@ -39,21 +39,21 @@ public class Matching : MonoBehaviourPunCallbacks
             var position = new Vector3(Random.Range(-6f, 6f), 0.2f, Random.Range(-5f, 0f));
             GameObject player = PhotonNetwork.Instantiate("Player2", position, Quaternion.identity);
             camera.transform.parent = player.transform;
-            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z - 0.7f * 0.16f);
+            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z + 0.15f);
         }
         else if (num == 3)
         {
             var position = new Vector3(Random.Range(-6f, 6f), 0.2f, Random.Range(-5f, 0f));
             GameObject player = PhotonNetwork.Instantiate("Player3", position, Quaternion.identity);
             camera.transform.parent = player.transform;
-            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z - 0.7f * 0.16f);
+            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z + 0.15f);
         }
         else if (num == 4)
         {
             var position = new Vector3(Random.Range(-6f, 6f), 0.2f, Random.Range(-5f, 0f));
             GameObject player = PhotonNetwork.Instantiate("Player4", position, Quaternion.identity);
             camera.transform.parent = player.transform;
-            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z - 0.7f * 0.16f);
+            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 4f * 0.16f, player.transform.position.z + 0.15f);
         }
     }
 }

@@ -121,9 +121,33 @@ public class Controller : MonoBehaviour
             if (Rotate)  //回転
             {
                 rotateObject();
+                VRrotate();
             }
+
+            VRmove();
+
             animator.SetInteger("trans", trans);
         }
+    }
+
+    //VRを用いた移動
+    private void VRmove()
+    {
+        Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
+        this.transform.position += this.transform.forward * stick.y * transrateSpeed * Time.deltaTime;
+        this.transform.position += this.transform.right * stick.x * transrateSpeed * Time.deltaTime;
+        if (stick.x != 0 && stick.y != 0)
+        {
+            trans = 1;
+        }
+    }
+
+    //VRを用いた回転
+    private void VRrotate()
+    {
+        Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
+
+        this.transform.RotateAround(this.transform.position, Vector3.up, stick.x);
     }
 
     private void rotateObject()  //回転

@@ -14,16 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Online.unity
     guid: 1d8c3e18211c4e74aa2f537015e9ad16
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Result.unity
     guid: 4c79aaa26fef0af48a8a415ff82255fb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Setting.unity
     guid: 0351a8a11dc2dbc49b68213eb3c52903
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/ResultOnline.unity
     guid: 2db86bc441d957946baeb8ef34482547
   m_configObjects:
