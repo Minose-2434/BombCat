@@ -42,7 +42,7 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         Timer = 0;
-        StartTime = 180;
+        StartTime = 10;
         game = false;
         MainText = GameObject.Find("MainText").GetComponent<Text>();
         SubText = GameObject.Find("SubText").GetComponent<Text>();

@@ -26,10 +26,15 @@ public class BombCreate_O : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        //プレイヤーオブジェクトが消えたら何もしない
+            //プレイヤーオブジェクトが消えたら何もしない
         if (Player == null)
         {
             return;
+        }
+
+        if (Mathf.Abs(Player.transform.position.x - this.transform.position.x) < 0.8f && Mathf.Abs(Player.transform.position.z - this.transform.position.z) < 0.8f)
+        {
+            touch = true;
         }
 
         if (Player.gameObject.tag == "Player_one")
@@ -50,19 +55,10 @@ public class BombCreate_O : MonoBehaviourPunCallbacks
                 Exprosion = bomb.gameObject.GetComponent<Exprosion_O>();
                 Exprosion.Player = Player;      //爆発用のクラスにプレイヤーの情報を送る               
                 create = false;                 //爆弾設置を不可に
-                touch = false;                  //接触判定をfalseに
                 Con.bomb = false;　　　　       //爆弾設置を不可に
                 Con.bomb_num -= 1;              //爆弾設置数を減らす
             }
-        }
-    }
-
-    //プレイヤーが離れたらtouchをfalseに
-    void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.tag == "Player_one")
-        {
-            touch = false;
+            touch = false;                  //接触判定をfalseに
         }
     }
 
@@ -71,7 +67,6 @@ public class BombCreate_O : MonoBehaviourPunCallbacks
     {
         if (other.gameObject.tag == "Player_one")
         {
-            touch = true;
             Player = other.gameObject;
             Con = Player.gameObject.GetComponent<Controller_O>();
         }

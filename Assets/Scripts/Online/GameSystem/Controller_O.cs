@@ -27,6 +27,7 @@ public class Controller_O : MonoBehaviourPunCallbacks
     AudioSource audioSource;
 
     private List<KeyCode> key = new List<KeyCode>();   //キーコードを保存しておく配列
+    //public GameObject VRcamera;  //カメラ
 
     // Start is called before the first frame update
     private void Awake()
@@ -46,6 +47,7 @@ public class Controller_O : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         Game = true;
+        //VRcamera = GameObject.Find("CenterEyeAnchor");
 
         //保存してあるキー配置を設定する
         string path = Application.persistentDataPath + "/savefile.json";
@@ -156,7 +158,9 @@ public class Controller_O : MonoBehaviourPunCallbacks
     private void VRrotate()
     {
         Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
+        //Vector3 VRcameraRotate = VRcamera.transform.localEulerAngles;
 
+        //this.transform.rotation = Quaternion.Euler(VRcameraRotate);
         this.transform.RotateAround(this.transform.position, Vector3.up, stick.x);
     }
 
