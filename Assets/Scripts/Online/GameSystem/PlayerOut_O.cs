@@ -27,24 +27,33 @@ public class PlayerOut_O : MonoBehaviourPunCallbacks
         //ゲーム開始して爆風に当たってしまった時
         if (other.gameObject.tag == "Fire" && GM.Timer > GM.StartTime)
         {
-            this.gameObject.transform.position = new Vector3(4f - GM.player_num, 13f, -0.5f);    //上空に移動
-            this.gameObject.transform.rotation = Quaternion.Euler(90f, 0.0f, 0.0f);
-            con.Game = false;    //動けないようにする
             if (photonView.IsMine)
             {
-                GM.GameOver = true;  //ゲームマスターにゲームオーバーを伝える
+                photonView.RPC(nameof(GameOverPlayer), RpcTarget.All);
             }
-            if (black)
+        }
+    }
+
+    [PunRPC]
+    private void GameOverPlayer()
+    {
+        this.gameObject.transform.position = new Vector3(4f - GM.player_num, 13f, -0.5f);    //上空に移動
+        this.gameObject.transform.rotation = Quaternion.Euler(90f, 0.0f, 0.0f);
+        con.Game = false;    //動けないようにする
+        if (photonView.IsMine)
+        {
+            GM.GameOver = true;  //ゲームマスターにゲームオーバーを伝える
+        }
+        if (black)
+        {
+            //自身のオブジェクトの時1度だけゲームオーバーオブジェクトを生成する
+            if (photonView.IsMine)
             {
-                //自身のオブジェクトの時i度だけゲームオーバーオブジェクトを生成する
-                if (photonView.IsMine)
-                {
-                    GameObject g = Instantiate(GameOver, this.transform);
-                    g.transform.position = new Vector3(0, 10f, 0);
-                }
-                GM.player_num -= 1;  //ゲームマスターのプレイヤー人数を1減らす
-                black = false;
+                GameObject g = Instantiate(GameOver, this.transform);
+                g.transform.position = new Vector3(0, 10f, 0);
             }
+            GM.player_num -= 1;  //ゲームマスターのプレイヤー人数を1減らす
+            black = false;
         }
     }
 }

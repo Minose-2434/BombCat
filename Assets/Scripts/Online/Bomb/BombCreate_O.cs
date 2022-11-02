@@ -42,6 +42,7 @@ public class BombCreate_O : MonoBehaviourPunCallbacks
             if (Con.bomb && touch && Con.bomb_num >= 1)  //プレイヤー1の場合左クリックで爆弾設置
             {
                 create = true;
+                Con.bomb_num -= 1;              //爆弾設置数を減らす
             }
         }
 
@@ -56,7 +57,6 @@ public class BombCreate_O : MonoBehaviourPunCallbacks
                 Exprosion.Player = Player;      //爆発用のクラスにプレイヤーの情報を送る               
                 create = false;                 //爆弾設置を不可に
                 Con.bomb = false;　　　　       //爆弾設置を不可に
-                Con.bomb_num -= 1;              //爆弾設置数を減らす
             }
             touch = false;                  //接触判定をfalseに
         }

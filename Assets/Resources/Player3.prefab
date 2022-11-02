@@ -272,7 +272,6 @@ Transform:
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6310139186330518830}
   - {fileID: 6880872901178212637}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -431,6 +430,8 @@ MonoBehaviour:
   bomb_num: 0
   punch: 0
   Foot: {fileID: 8300000, guid: b88317d5858f86d44a246b597030e948, type: 3}
+  VRcamera: {fileID: 0}
+  Body: {fileID: 0}
 --- !u!114 &2968693929462380524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,9 +675,10 @@ Transform:
   m_LocalPosition: {x: 0.030250832, y: 0.021509945, z: 0.0000000028900526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6310139186330518830}
   m_Father: {fileID: 1764299229960388991}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &4859196434433592791
 SkinnedMeshRenderer:
@@ -976,13 +978,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5161035065049131608}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0.030250832, y: -0.021509945, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2161843591242998925}
-  m_Father: {fileID: 1764299229960388991}
+  m_Father: {fileID: 6880872901178212637}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5266719348890040241

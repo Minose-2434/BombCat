@@ -27,7 +27,9 @@ public class Controller_O : MonoBehaviourPunCallbacks
     AudioSource audioSource;
 
     private List<KeyCode> key = new List<KeyCode>();   //キーコードを保存しておく配列
-    //public GameObject VRcamera;  //カメラ
+    public GameObject VRcamera;  //カメラ
+    public GameObject Body;
+    private bool block;         //壁に当たっているかどうか
 
     // Start is called before the first frame update
     private void Awake()
@@ -47,7 +49,8 @@ public class Controller_O : MonoBehaviourPunCallbacks
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
         Game = true;
-        //VRcamera = GameObject.Find("CenterEyeAnchor");
+        VRcamera = GameObject.Find("CenterEyeAnchor");
+        Body = GameObject.Find("Body");
 
         //保存してあるキー配置を設定する
         string path = Application.persistentDataPath + "/savefile.json";
@@ -69,8 +72,8 @@ public class Controller_O : MonoBehaviourPunCallbacks
             key.Add(KeyCode.S);
             key.Add(KeyCode.D);
             key.Add(KeyCode.A);
-            key.Add(KeyCode.Space);
-            key.Add(KeyCode.Mouse0);
+            key.Add(KeyCode.Joystick2Button0);
+            key.Add(KeyCode.Joystick2Button5);
         }
     }
 
@@ -146,8 +149,8 @@ public class Controller_O : MonoBehaviourPunCallbacks
     private void VRmove()
     {
         Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
-        this.transform.position += this.transform.forward * stick.y * transrateSpeed * Time.deltaTime;
-        this.transform.position += this.transform.right * stick.x * transrateSpeed * Time.deltaTime;
+        this.transform.position += VRcamera.transform.forward * stick.y * transrateSpeed * Time.deltaTime;
+        this.transform.position += VRcamera.transform.right * stick.x * transrateSpeed * Time.deltaTime;
         if(stick.x != 0 && stick.y != 0)
         {
             trans = 1;
@@ -158,9 +161,9 @@ public class Controller_O : MonoBehaviourPunCallbacks
     private void VRrotate()
     {
         Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
-        //Vector3 VRcameraRotate = VRcamera.transform.localEulerAngles;
+        Vector3 VRcameraRotate = VRcamera.transform.eulerAngles;
 
-        //this.transform.rotation = Quaternion.Euler(VRcameraRotate);
+        Body.transform.rotation = Quaternion.Euler(VRcameraRotate);
         this.transform.RotateAround(this.transform.position, Vector3.up, stick.x);
     }
 
@@ -179,6 +182,18 @@ public class Controller_O : MonoBehaviourPunCallbacks
         if (other.gameObject.tag == "Yuka") //Yukaタグのオブジェクトに触れたとき
         {
             Setti = true; //Settiをtrueにする
+        }
+        if (other.gameObject.tag == "Kabe") //Yukaタグのオブジェクトに触れたとき
+        {
+            block = true; //blockをtrueにする
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Kabe") //Yukaタグのオブジェクトに触れたとき
+        {
+            block = false; //blockをfalseにする
         }
     }
 

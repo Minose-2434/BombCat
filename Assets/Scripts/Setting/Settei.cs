@@ -75,8 +75,8 @@ public class Settei : MonoBehaviour
             key.Add(KeyCode.S);
             key.Add(KeyCode.D);
             key.Add(KeyCode.A);
-            key.Add(KeyCode.Space);
-            key.Add(KeyCode.Mouse0);
+            key.Add(KeyCode.Joystick2Button0);
+            key.Add(KeyCode.Joystick2Button5);
             BGMSound.value = 1.0f;
             SystemSound.value = 1.0f;
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,10 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
     public float StartTime;      //ゲームがスタートした時間を保存する
     public string myname;        //自身の名前を保存する
     public static string Myname; //自身の名前Resultに送る
-    private GameObject gameover;
+    private GameObject gameover; //ゲームオーバーの際に生成するオブジェクト
+
+    public AudioClip StartSound; //ゲーム開始音
+    AudioSource audioSource;     //AudioSource
 
     //ステージを生成するスクリプト
     public RengaCreate_O renga;
@@ -44,6 +48,20 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
         Timer = 0;
         StartTime = 10;
         game = false;
+        audioSource = GetComponent<AudioSource>();
+        //保存してある音量設定を適用する
+        string path = Application.persistentDataPath + "/savefile.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            audioSource.volume = 0.5f * data.SystemSound;
+        }
+        else
+        {
+            audioSource.volume = 0.5f * 1.0f;
+        }
         MainText = GameObject.Find("MainText").GetComponent<Text>();
         SubText = GameObject.Find("SubText").GetComponent<Text>();
         renga = GameObject.Find("Stage").GetComponent<RengaCreate_O>();
@@ -87,6 +105,10 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             {
                 StartTime = Timer;        //ゲームがスタートした時間を取得する
                 start_num = player_num;   //ゲーム開始時の人数を取得する
+                if(start_num != 1)
+                {
+                    audioSource.PlayOneShot(StartSound);  //プレイヤーが2人以上でゲームが始まるときカウントダウン音を鳴らす
+                }
             } 
             GameStart(StartTime, Timer);           
             SubText.text = "";
@@ -133,9 +155,9 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             con2 = p2.GetComponent<Controller_O>();
             con1.Game = false;
             con2.Game = false;
-            p1.transform.position = new Vector3(-4f, 0.2f, -3f);
+            p1.transform.position = new Vector3(-4f, 3f, -3f);
             p1.transform.rotation = Quaternion.identity;
-            p2.transform.position = new Vector3(4f, 0.2f, 3f);
+            p2.transform.position = new Vector3(4f, 3f, 3f);
             p2.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
             iron.Create2();
@@ -157,11 +179,11 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             con1.Game = false;
             con2.Game = false;
             con3.Game = false;
-            p1.transform.position = new Vector3(-6f, 0.2f, -3f);
+            p1.transform.position = new Vector3(-6f, 3f, -3f);
             p1.transform.rotation = Quaternion.identity;
-            p2.transform.position = new Vector3(6f, 0.2f, -3f);
+            p2.transform.position = new Vector3(6f, 3f, -3f);
             p2.transform.rotation = Quaternion.identity;
-            p3.transform.position = new Vector3(0f, 0.2f, 3f);
+            p3.transform.position = new Vector3(0f, 3f, 3f);
             p3.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
             iron.Create3();
@@ -185,13 +207,13 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             con2.Game = false;
             con3.Game = false;
             con4.Game = false;
-            p1.transform.position = new Vector3(-6f, 0.2f, -5f);
+            p1.transform.position = new Vector3(-6f, 3f, -5f);
             p1.transform.rotation = Quaternion.identity;
-            p2.transform.position = new Vector3(6f, 0.2f, 5f);
+            p2.transform.position = new Vector3(6f, 3f, 5f);
             p2.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            p3.transform.position = new Vector3(6f, 0.2f, -5f);
+            p3.transform.position = new Vector3(6f, 3f, -5f);
             p3.transform.rotation = Quaternion.identity;
-            p4.transform.position = new Vector3(-6f, 0.2f, 5f);
+            p4.transform.position = new Vector3(-6f, 3f, 5f);
             p4.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
             iron.Create4();

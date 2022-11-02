@@ -54,9 +54,9 @@ public class IronCreate_O : MonoBehaviour
             }
         }
         Kabe1.transform.localScale = new Vector3(1f, 1f, 7f);
-        Kabe1.transform.position = new Vector3(-5f, 0.5f, 0f);
+        Kabe1.transform.position = new Vector3(5f, 0.5f, 0f);
         Kabe2.transform.localScale = new Vector3(1f, 1f, 7f);
-        Kabe2.transform.position = new Vector3(5f, 0.5f, 0f);
+        Kabe2.transform.position = new Vector3(-5f, 0.5f, 0f);
         Kabe3.transform.localScale = new Vector3(11f, 1f, 1f);
         Kabe3.transform.position = new Vector3(0f, 0.5f, 4f);
         Kabe4.transform.localScale = new Vector3(11f, 1f, 1f);

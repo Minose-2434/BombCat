@@ -17,6 +17,7 @@ public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
     //爆発エフェクト用のオブジェクト
     public GameObject ExplosionObj;
     public GameObject ExplosionObjPrefab;
+    private GameObject fire;
 
     //爆発音再生用
     public AudioClip Bomb;
@@ -43,8 +44,11 @@ public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
             audioSource.PlayOneShot(Bomb);  //爆発音を一度だけ流す
             Destroy(bomb);                  //爆弾を破裂したように見せる
             //爆発エフェクトを生成する
-            GameObject fire = Instantiate(ExplosionObjPrefab, ExplosionObj.transform);
-            fire.transform.position = this.transform.position;
+            if (photonView.IsMine)
+            {
+                fire = PhotonNetwork.Instantiate("ExplosionMobile", ExplosionObj.transform.position, Quaternion.identity);
+            }
+            //fire.transform.position = this.transform.position;
             explosion = false;　　//生成が一度だけになるようにする
         }
         else if (DeleteTime > 6)
@@ -53,8 +57,10 @@ public class Exprosion_O : MonoBehaviourPunCallbacks, IPunObservable
             {
                 Controller_O con = Player.gameObject.GetComponent<Controller_O>();
                 con.bomb_num += 1;
+                PhotonNetwork.Destroy(this.gameObject);   
+                PhotonNetwork.Destroy(this.gameObject);   //爆弾を全て消す
             }
-            Destroy(this.gameObject);   //爆弾を全て消す
+            
         }
     }
 
