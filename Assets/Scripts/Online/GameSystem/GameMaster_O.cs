@@ -46,7 +46,7 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         Timer = 0;
-        StartTime = 10;
+        StartTime = 180;
         game = false;
         audioSource = GetComponent<AudioSource>();
         //保存してある音量設定を適用する
