@@ -85,7 +85,18 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
         //マッチングにかかった時間をマスタークライアントが計算する
         if (photonView.IsMine)
         {
-            Timer += Time.deltaTime;
+            if (Input.GetKey(KeyCode.Joystick2Button2))
+            {
+                Timer += Time.deltaTime * 20;
+            }
+            else if (Input.GetKey(KeyCode.Joystick2Button3) && Timer > 0)
+            {
+                Timer -= Time.deltaTime * 20;
+            }
+            else
+            {
+                Timer += Time.deltaTime;
+            }
         }
 
         //プレーヤーの数を数え、キャラクターのゲームオブジェクトを取得
