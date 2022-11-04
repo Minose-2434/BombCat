@@ -9,16 +9,16 @@ public class GameFinish_O : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
-            SceneManager.LoadScene("Start");
             PhotonNetwork.Disconnect();
+            SceneManager.LoadScene("Start");
         }
     }
 
     public void ClickFinishButton()
     {
-        SceneManager.LoadScene("Start");
         PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("Start");
     }
 }

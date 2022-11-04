@@ -149,8 +149,10 @@ public class Controller_O : MonoBehaviourPunCallbacks
     private void VRmove()
     {
         Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.LThumbstick);
-        this.transform.position += VRcamera.transform.forward * stick.y * transrateSpeed * Time.deltaTime;
-        this.transform.position += VRcamera.transform.right * stick.x * transrateSpeed * Time.deltaTime;
+        Vector3 forwardg = new Vector3(VRcamera.transform.forward.x, 0, VRcamera.transform.forward.z);
+        Vector3 rightg = new Vector3(VRcamera.transform.right.x, 0, VRcamera.transform.right.z);
+        this.transform.position += forwardg * stick.y * transrateSpeed * Time.deltaTime;
+        this.transform.position += rightg * stick.x * transrateSpeed * Time.deltaTime;
         if(stick.x != 0 && stick.y != 0)
         {
             trans = 1;
@@ -160,7 +162,7 @@ public class Controller_O : MonoBehaviourPunCallbacks
     //VRを用いた回転
     private void VRrotate()
     {
-        Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick);
+        Vector2 stick = OVRInput.Get(OVRInput.RawAxis2D.RThumbstick) * rotateSpeed;
         Vector3 VRcameraRotate = VRcamera.transform.eulerAngles;
 
         Body.transform.rotation = Quaternion.Euler(VRcameraRotate);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -46,7 +47,7 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         Timer = 0;
-        StartTime = 180;
+        StartTime = 60;
         game = false;
         audioSource = GetComponent<AudioSource>();
         //保存してある音量設定を適用する
@@ -88,7 +89,7 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
         }
 
         //プレーヤーの数を数え、キャラクターのゲームオブジェクトを取得
-        if (Timer < StartTime)
+        if (Timer < StartTime /*&& !game*/)
         {
             player_num = PhotonNetwork.CurrentRoom.PlayerCount;
             p1 = GameObject.Find("Player1(Clone)");
@@ -96,10 +97,10 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             p3 = GameObject.Find("Player3(Clone)");
             p4 = GameObject.Find("Player4(Clone)");
 
-            SubText.text = "プレーヤー数\n" + player_num.ToString() + "/4";
+            SubText.text = "時間\n" + ((int)Timer).ToString() + "/"　+ StartTime.ToString();
             TextChange();
         }
-        else if(Timer > StartTime || player_num == 4)
+        else if(Timer > StartTime /*|| player_num == 4*/)
         {
             if(!game)
             {
@@ -109,7 +110,8 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     audioSource.PlayOneShot(StartSound);  //プレイヤーが2人以上でゲームが始まるときカウントダウン音を鳴らす
                 }
-            } 
+            }
+            //photonView.RPC(nameof(GameStart), RpcTarget.All, StartTime, Timer);
             GameStart(StartTime, Timer);           
             SubText.text = "";
 
@@ -230,7 +232,7 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
         else if(player_num == 1 && start_num == 1)
         {
             Timer = 0;
-            StartTime = 10;
+            StartTime = 60;
             return;
         }
 
