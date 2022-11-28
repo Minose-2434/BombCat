@@ -788,9 +788,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'VR
-
-    BomberMan'
+  m_Text: "VR\n\u7206\u5F3E\u306D\u3053"
 --- !u!222 &608908546
 CanvasRenderer:
   m_ObjectHideFlags: 0
