@@ -12,6 +12,9 @@ public class GameMaster : MonoBehaviour
     public int player_num;     //プレイヤーの人数
     public static string winner;　//勝者の名前（リザルトシーンに渡す）
     private float Timer;       //経過時間主にゲームスタートに用いる
+    private bool count;              //カウントダウン音を一回だけ鳴らすためのbool
+    public AudioClip CountDown;　　　//カウントダウン音
+    AudioSource audioSource;
 
     //プレイヤー1～4のゲームオブジェクト
     public GameObject p1;
@@ -34,6 +37,8 @@ public class GameMaster : MonoBehaviour
         con4 = p4.GetComponent<Computer>();
         player_num = 4;
         Timer = 0;
+        count = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -79,6 +84,12 @@ public class GameMaster : MonoBehaviour
     //カウントダウを行う
     private void GameStart(float time)
     {
+        if (count)
+        {
+            audioSource.PlayOneShot(CountDown);　　//一回音を鳴らす
+            count = false;
+        }
+        
         if (time < 1)
         {
             Text.text = "3";
