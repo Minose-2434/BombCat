@@ -42,7 +42,7 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         Timer = 0;
-        StartTime = 180;
+        StartTime = 10;
         game = false;
         MainText = GameObject.Find("MainText").GetComponent<Text>();
         SubText = GameObject.Find("SubText").GetComponent<Text>();
@@ -133,9 +133,9 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             con2 = p2.GetComponent<Controller_O>();
             con1.Game = false;
             con2.Game = false;
-            p1.transform.position = new Vector3(-4f, 0.2f, -3f);
+            p1.transform.position = new Vector3(-4f, 0.1f, -3f);
             p1.transform.rotation = Quaternion.identity;
-            p2.transform.position = new Vector3(4f, 0.2f, 3f);
+            p2.transform.position = new Vector3(4f, 0.1f, 3f);
             p2.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
             iron.Create2();
@@ -157,11 +157,11 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             con1.Game = false;
             con2.Game = false;
             con3.Game = false;
-            p1.transform.position = new Vector3(-6f, 0.2f, -3f);
+            p1.transform.position = new Vector3(-6f, 0.1f, -3f);
             p1.transform.rotation = Quaternion.identity;
-            p2.transform.position = new Vector3(6f, 0.2f, -3f);
+            p2.transform.position = new Vector3(6f, 0.1f, -3f);
             p2.transform.rotation = Quaternion.identity;
-            p3.transform.position = new Vector3(0f, 0.2f, 3f);
+            p3.transform.position = new Vector3(0f, 0.1f, 3f);
             p3.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
             iron.Create3();
@@ -185,13 +185,13 @@ public class GameMaster_O : MonoBehaviourPunCallbacks, IPunObservable
             con2.Game = false;
             con3.Game = false;
             con4.Game = false;
-            p1.transform.position = new Vector3(-6f, 0.2f, -5f);
+            p1.transform.position = new Vector3(-6f, 0.1f, -5f);
             p1.transform.rotation = Quaternion.identity;
-            p2.transform.position = new Vector3(6f, 0.2f, 5f);
+            p2.transform.position = new Vector3(6f, 0.1f, 5f);
             p2.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            p3.transform.position = new Vector3(6f, 0.2f, -5f);
+            p3.transform.position = new Vector3(6f, 0.1f, -5f);
             p3.transform.rotation = Quaternion.identity;
-            p4.transform.position = new Vector3(-6f, 0.2f, 5f);
+            p4.transform.position = new Vector3(-6f, 0.1f, 5f);
             p4.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
 
             iron.Create4();

@@ -13,9 +13,9 @@ public class BombCreate : MonoBehaviour
     private GameObject BombsObj;
 
     private GameObject Player;       //プレイヤーまたはコンピューター
-    private YukaScore YS;            //床のスコアにコンピューターが爆弾設置可能かの変数がある
+    private MoveScore _MoveScore;            //床のスコアにコンピューターが爆弾設置可能かの変数がある
     private Exprosion Exprosion;     //爆発のクラス(このクラスに爆弾を設置したプレイヤーの情報を送る)
-    private Computer CPU;            //コンピューターの動きをつかさどるクラス
+    private ComputerMove CPU;        //コンピューターの動きをつかさどるクラス
     private Controller Con;          //プレイヤーの動きを制御するクラス
 
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class BombCreate : MonoBehaviour
     {
         BombsObj = GameObject.Find("Bombs");
         Player = this.gameObject;
-        YS = this.GetComponent<YukaScore>();
+        _MoveScore = this.GetComponent<MoveScore>();
     }
 
     // Update is called once per frame
@@ -38,46 +38,14 @@ public class BombCreate : MonoBehaviour
         }
         else if(Player.gameObject.tag == "Player")
         {
-            if (YS.bomb && touch)  //コンピューターの場合床スコアで設置可能であれば爆弾設置
+            if (CPU._Bomb && touch)  //コンピューターの場合床スコアで設置可能であれば爆弾設置
             {
                 create = true;
+                CPU._Bomb = false;
             }
         }
 
-        //一定距離プレイヤーが床から離れたとき爆弾を生成する
-        if (Mathf.Abs(Player.transform.position.x - this.transform.position.x) > 0.8f || Mathf.Abs(Player.transform.position.z - this.transform.position.z) > 0.8f)
-        {  
-            if (create)
-            {
-                if (Player.gameObject.tag == "Player_one")
-                {
-                    GameObject g = Instantiate(BombObjPrefab, BombsObj.transform);
-                    g.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);  //床の真上に爆弾を生成
-                    Exprosion = g.gameObject.GetComponent<Exprosion>();
-                    //Eb.Player = Player;    //爆発用のクラスにプレイヤーの情報を送る
-                    create = false;          //爆弾設置を不可に
-                    touch = false;           //接触判定をfalseに
-                    Con.bomb = false;　　　　//爆弾設置を不可に
-                }    
-                else if (Player.gameObject.tag == "Player")
-                {
-                    if (!CPU.setti)         //逃げ場がないとき
-                    {
-                        create = false;     //爆弾設置を不可に
-                        YS.bomb = false;    //床スコアの設置も不可に
-                    }
-                    else
-                    {
-                        GameObject g = Instantiate(BombObjPrefab, BombsObj.transform);
-                        g.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);  //床の真上に爆弾を生成
-                        Exprosion = g.gameObject.GetComponent<Exprosion>();
-                        //Eb.Player = Player;    //爆発用のクラスにプレイヤーの情報を送る
-                        create = false;          //爆弾設置を不可に
-                        touch = false;           //接触判定をfalseに
-                    }
-                }
-            }
-        }
+        Create();
         
     }
 
@@ -103,7 +71,42 @@ public class BombCreate : MonoBehaviour
         {
             touch = true;
             Player = other.gameObject;
-            CPU = Player.gameObject.GetComponent<Computer>();
+            CPU = Player.gameObject.GetComponent<ComputerMove>();
+        }
+    }
+
+    //爆弾を生成するメソッド
+    private void Create()
+    {
+        //一定距離プレイヤーが床から離れたとき爆弾を生成する
+        if (Mathf.Abs(Player.transform.position.x - this.transform.position.x) > 0.8f || Mathf.Abs(Player.transform.position.z - this.transform.position.z) > 0.8f)
+        {
+            if (create)
+            {
+                if (Player.gameObject.tag == "Player_one")
+                {
+                    GameObject g = Instantiate(BombObjPrefab, BombsObj.transform);
+                    g.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);  //床の真上に爆弾を生成
+                    Exprosion = g.gameObject.GetComponent<Exprosion>();
+                    Exprosion.Player = Player;    //爆発用のクラスにプレイヤーの情報を送る
+                    create = false;          //爆弾設置を不可に
+                    touch = false;           //接触判定をfalseに
+                    Con.bomb = false;　　　　//爆弾設置を不可に
+                    Con.bomb_num -= 1;
+                }
+                else if (Player.gameObject.tag == "Player")
+                {
+                    GameObject g = Instantiate(BombObjPrefab, BombsObj.transform);
+                    g.transform.position = new Vector3(this.transform.position.x, 0.5f, this.transform.position.z);  //床の真上に爆弾を生成
+                    Exprosion = g.gameObject.GetComponent<Exprosion>();
+                    Exprosion.Player = Player;    //爆発用のクラスにプレイヤーの情報を送る
+                    create = false;          //爆弾設置を不可に
+                    touch = false;           //接触判定をfalseに
+                    CPU._BombNum -= 1;
+                    _MoveScore._State = MoveScore.STATE_ENUM.BOMB;
+                    _MoveScore.StateChange(CPU._Fire, this.transform.position.x, this.transform.position.z, MoveScore.STATE_ENUM.FIRE);
+                }
+            }
         }
     }
 }

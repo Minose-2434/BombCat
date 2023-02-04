@@ -6,18 +6,7 @@ using UnityEngine;
 public class RengaDelete : MonoBehaviour
 {
     private YukaScore YS;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private MoveScore _MoveScore;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,6 +14,7 @@ public class RengaDelete : MonoBehaviour
         if (other.gameObject.tag == "Fire")
         {
             YS.score = 100;
+            _MoveScore._State = MoveScore.STATE_ENUM.FIRE;
             Destroy(this.gameObject);
         }
     }
@@ -37,6 +27,7 @@ public class RengaDelete : MonoBehaviour
             if (other.gameObject.transform.position.x == this.gameObject.transform.position.x && other.gameObject.transform.position.z == this.gameObject.transform.position.z)
             {
                 YS = other.gameObject.GetComponent<YukaScore>();
+                _MoveScore = other.gameObject.GetComponent<MoveScore>();
             }
         }
     }

@@ -24,17 +24,17 @@ public class GameMaster : MonoBehaviour
 
     //プレイヤー1～4の行動を制御するクラス
     public Controller con1;
-    public Computer con2;
-    public Computer con3;
-    public Computer con4;
+    public ComputerMove con2;
+    public ComputerMove con3;
+    public ComputerMove con4;
 
     // Start is called before the first frame update
     void Start()
     {
         con1 = p1.GetComponent<Controller>();
-        con2 = p2.GetComponent<Computer>();
-        con3 = p3.GetComponent<Computer>();
-        con4 = p4.GetComponent<Computer>();
+        con2 = p2.GetComponent<ComputerMove>();
+        con3 = p3.GetComponent<ComputerMove>();
+        con4 = p4.GetComponent<ComputerMove>();
         player_num = 4;
         Timer = 0;
         count = true;
@@ -65,15 +65,15 @@ public class GameMaster : MonoBehaviour
             {
                 winner = "1p";
             }
-            else if (con2.Game)
+            else if (con2._MovingState != ComputerMove.MOVING_STATE.NONE)
             {
                 winner = "2p";
             }
-            else if (con3.Game)
+            else if (con3._MovingState != ComputerMove.MOVING_STATE.NONE)
             {
                 winner = "3p";
             }
-            else if (con4.Game)
+            else if (con4._MovingState != ComputerMove.MOVING_STATE.NONE)
             {
                 winner = "4p";
             }
@@ -107,9 +107,9 @@ public class GameMaster : MonoBehaviour
             //プレイヤー1～4を動けるようにする
             Text.text = "Start";
             con1.Game = true;
-            con2.Game = true;
-            con3.Game = true;
-            con4.Game = true;
+            con2._MovingState = ComputerMove.MOVING_STATE.ARRIVE;
+            con3._MovingState = ComputerMove.MOVING_STATE.ARRIVE;
+            con4._MovingState = ComputerMove.MOVING_STATE.ARRIVE;
         }
         else
         {

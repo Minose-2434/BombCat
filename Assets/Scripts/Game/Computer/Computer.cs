@@ -16,6 +16,10 @@ public class Computer : MonoBehaviour
     public Vector3 destination;    //目的地の座標を格納する
     public GameObject next;        //次の床
 
+    public float transrateSpeed; //移動速度
+    public float fire;           //爆弾の火力
+    public int bomb_num;         //設置できる爆弾の個数
+
     //アニメーション制御用の変数
     private Animator animator;
     private int trans;
@@ -27,6 +31,9 @@ public class Computer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transrateSpeed = 2.0f;
+        fire = 1.0f;
+        bomb_num = 1;
         audioSource = GetComponent<AudioSource>();
         destination = this.transform.position;
         setti = true;
@@ -52,7 +59,7 @@ public class Computer : MonoBehaviour
                 {
                     trans = 1;
                     this.transform.LookAt(destination);
-                    this.transform.position += transform.forward * 2.0f * Time.deltaTime;
+                    this.transform.position += transform.forward * transrateSpeed * Time.deltaTime;
                 }
             }
             else if (moveTime < 0.8)  //残り0.3秒で次の目的地を設定する

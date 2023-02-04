@@ -9,7 +9,7 @@ public class FireUp_O : MonoBehaviour
         if (other.gameObject.tag == "Player_one")
         {
             Controller_O con = other.gameObject.GetComponent<Controller_O>();
-            if (con.bomb_num <= 8.0f)
+            if (con.fire <= 8.0f)
             {
                 con.fire += 1.0f;
             }

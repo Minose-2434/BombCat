@@ -79,7 +79,7 @@ public class Controller_O : MonoBehaviourPunCallbacks
             animator = GetComponent<Animator>();
             trans = animator.GetInteger("trans");
 
-            //trans = 0;
+            trans = 0;
             if (Input.GetKey(key[0]))  //前進
             {
                 trans = 1;

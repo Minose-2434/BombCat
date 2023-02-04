@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerOut : MonoBehaviour
 {
     private Controller con;      //プレイヤーの動きの制御
-    private Computer CPU;        //コンピューターの動きの制御
+    private ComputerMove CPU;        //コンピューターの動きの制御
     public GameObject GameOver;  //ゲームオーバー時に薄暗くするためのオブジェクト
+    public GameObject KillLog;   //キルログを表示するキャンバス
     public GameMaster GM;        //ゲームの進行をつかさどる
     private bool black;          //GameOverオブジェクトを1回だけ生成するために必要
 
@@ -24,7 +25,7 @@ public class PlayerOut : MonoBehaviour
         }
         else if(this.gameObject.tag == "Player")
         {
-            CPU = this.GetComponent<Computer>();
+            CPU = this.GetComponent<ComputerMove>();
         }
     }
 
@@ -37,10 +38,15 @@ public class PlayerOut : MonoBehaviour
             {
                 this.gameObject.transform.position = new Vector3(5f, 13f, -0.5f);  　　　//上空に移動
                 this.gameObject.transform.rotation = Quaternion.Euler(90f, 0.0f, 0.0f);  
-                CPU.Game = false;  //動けないようにする
+                CPU._MovingState = ComputerMove.MOVING_STATE.NONE;  //動けないようにする
                 if (black)
                 {
                     GM.player_num -= 1;　//ゲームマスターのプレイヤー人数を1減らす
+                    //プレイヤーが倒した場合メッセージが出る
+                    if (other.gameObject.GetComponent<Exprosion_fire>().Player.gameObject.tag == "Player_one")
+                    {
+                        GameObject g = Instantiate(KillLog, other.gameObject.GetComponent<Exprosion_fire>().Player.transform);
+                    }
                     black = false;
                 }
             }

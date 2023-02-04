@@ -14,6 +14,8 @@ public class Controller : MonoBehaviour
 
     public float rotateSpeed;    //回転速度
     public float transrateSpeed; //移動速度
+    public float fire;           //爆弾の火力
+    public int bomb_num;         //設置できる爆弾の個数
 
     private Animator animator;
     private int trans;          //アニメーション制御の変数
@@ -33,6 +35,8 @@ public class Controller : MonoBehaviour
     {
         rotateSpeed = 2.0f;
         transrateSpeed = 2.0f;
+        fire = 1.0f;
+        bomb_num = 1;
         Rotate = true;
         bomb = false;
         rb = GetComponent<Rigidbody>();

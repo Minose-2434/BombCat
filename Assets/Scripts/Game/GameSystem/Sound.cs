@@ -5,7 +5,7 @@ using System.IO;
 
 public class Sound : MonoBehaviour
 {
-    private float volume;
+    private float Volume;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -20,17 +20,17 @@ public class Sound : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            volume = data.BGMSound;
+            Volume = data.BGMSound;
         }
         else
         {
-            volume = 1.0f;
+            Volume = 1.0f;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        audioSource.volume = 0.01f * volume;
+        audioSource.volume = 0.01f * Volume;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//”š’e”‘‰Á‚ÌƒAƒCƒeƒ€‚ğæ‚Á‚½‚Ìˆ—
 public class BombUp_O : MonoBehaviour
 {
     private void OnCollisionEnter(Collision other)

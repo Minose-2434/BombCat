@@ -6,11 +6,14 @@ using UnityEngine;
 public class Exprosion : MonoBehaviour
 {
     public GameObject bomb;   //爆弾本体のオブジェクト
+    public GameObject Player; //爆弾を生成したプレイヤーの状態を参照
+    private Controller Con;
+    private ComputerMove CPU;
 
     public float DeleteTime;  //爆発の時間管理に使う
     private bool exprosion;   //爆発エフェクトを一度だけ出すために使う
 
-    private YukaScore YS;     //コンピュータの制御の際の床のスコア管理
+    private MoveScore _MoveScore;     //コンピュータの制御の際の床のスコア管理
 
     //爆発エフェクト用のオブジェクト
     public GameObject ExprosionObjPrefab;
@@ -25,6 +28,14 @@ public class Exprosion : MonoBehaviour
     {
         exprosion = true;
         audioSource = GetComponent<AudioSource>();
+        if(Player.gameObject.tag == "Player_one")
+        {
+            Con = Player.gameObject.GetComponent<Controller>();
+        }
+        else
+        {
+            CPU = Player.gameObject.GetComponent<ComputerMove>();
+        }
     }
 
     // Update is called once per frame
@@ -43,8 +54,18 @@ public class Exprosion : MonoBehaviour
         }
 　　　　else if(DeleteTime > 6)
         {
-            YS.bomb = false;　　　　　　//爆弾をいない判定に
-            YS.proceed = true;          //進むことができるように
+            //爆弾の数を1増やす
+            if (Player.gameObject.tag == "Player_one")
+            {
+                Con.bomb_num += 1;
+                _MoveScore._State = MoveScore.STATE_ENUM.MOVE;
+            }
+            else
+            {
+                CPU._BombNum += 1;
+                _MoveScore._State = MoveScore.STATE_ENUM.MOVE;
+                _MoveScore.StateChange(CPU._Fire, this.transform.position.x, this.transform.position.z, MoveScore.STATE_ENUM.MOVE);
+            }
             Destroy(this.gameObject);   //爆弾を全て消す
         }
     }
@@ -54,7 +75,7 @@ public class Exprosion : MonoBehaviour
     {
         if (other.gameObject.tag == "Yuka")
         {
-            YS = other.gameObject.GetComponent<YukaScore>();
+            _MoveScore = other.gameObject.GetComponent<MoveScore>();
         }
     }
 }
